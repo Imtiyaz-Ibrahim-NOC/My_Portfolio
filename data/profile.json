@@ -1,0 +1,62 @@
+{
+  "name": "Imtiyaz Ibrahim",
+  "title": "Network Operation Center Engineer",
+  "tagline": "Monitoring Networks Today, Securing the Cloud Tomorrow",
+  "description": "NOC Engineer with experience in network monitoring and incident management, aspiring to build a career in Cyber Security and Cloud Security. Passionate about securing systems, analyzing threats, and continuously learning new technologies to protect modern digital environments.",
+  "profileImage": "data/images/myprofile.png",
+  "resumeLink": "file:///E:/documents/Aaqii.doc/aaqii%20doc/IMTIYAZ-IBRAHIM-cybersecurity%20resume...%20(1).pdf",
+  "location": "Bangalore India",
+  "email": "erimtiyazibrahim@gmail.com",
+  "phone": "+91 9149693069",
+  "social": {
+    "github": "https://github.com/Imtiyaz-Ibrahim-NOC",
+    "linkedin": "https://linkedin.com/in/imtiyaz-ibrahim",
+    "twitter": "https://x.com/imtiyaz_ib32754",
+    "portfolio": "http://youtube.com/@RajaAaqii99"
+  },
+  "about": {
+    "summary": "Currently working as a NOC Engineer, I have hands-on experience in network monitoring, incident management, and ensuring system uptime. I am passionate about transitioning into Cybersecurity and Cloud Security, with a strong interest in protecting systems and data in modern IT environments.",
+    "paragraphs": [
+      "I have a solid foundation in networking concepts, troubleshooting, and real-time monitoring of infrastructure. My role involves identifying issues, resolving incidents, and maintaining network performance to meet SLA requirements.",
+
+"I am actively building my skills in Cybersecurity and Cloud technologies, exploring areas like network security, threat detection, and cloud infrastructure. I am committed to continuous learning through certifications and practical labs.",
+
+"When I'm not working, I focus on upgrading my technical knowledge, learning new tools, and staying updated with industry trends. I am eager to grow in the field of Cybersecurity and Cloud Security and open to opportunities that align with my career goals."
+    ],
+
+    "highlights": [
+      {
+        "number": "1",
+        "label": "Years Experience"
+      },
+      {
+        "number": "4+",
+        "label": "Projects Completed"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let's Work Together",
+    "description": "Have a project in mind or want to collaborate? I'd love to hear from you. Fill out the form below or reach out through any of the channels.",
+    "info": [
+      {
+        "type": "email",
+        "label": "Email",
+        "value": "erimtiyazibrahim@gmail.com",
+        "icon": "mail"
+      },
+      {
+        "type": "phone",
+        "label": "Phone",
+        "value": "+91 9149693069",
+        "icon": "phone"
+      },
+      {
+        "type": "location",
+        "label": "Location",
+        "value": "Bangalore India",
+        "icon": "map-pin"
+      }
+    ]
+  }
+}

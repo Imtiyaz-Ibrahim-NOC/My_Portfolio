@@ -1,0 +1,13 @@
+{
+  "certificates": [
+    {
+      "id": "CompTIA Security+",
+      "title": "CompTIA Security+",
+      "issuer": "Coursera",
+      "issueDate": "2025-12-18",
+      "credentialId": "KHGGCYC7POMG",
+      "image": "data/images/comptia security+_page-0001.jpg",
+      "link": "https://coursera.org/share/a9e2f0cacabb640ceae10b9e80f73a5f"
+    }
+  ]
+}

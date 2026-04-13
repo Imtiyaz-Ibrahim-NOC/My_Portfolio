@@ -4,7 +4,7 @@
     "id": "vulnerability-scan-network",
     "title": "Vulnerability Scan & Network Security Assessment",
     "description": "Performed in-depth vulnerability scanning and security assessment on a network to identify open ports, misconfigurations, outdated services, and potential security risks. Applied CVSS scoring to evaluate severity and provided actionable remediation steps.",
-    "image": "",
+    "image": "data/images/vulnerability scan.png",
     "tags": ["Nmap", "Wireshark", "Kali Linux", "Network Security", "Vulnerability Assessment"],
     "demoLink": null,
     "githubLink": "https://github.com/Imtiyaz-Ibrahim-NOC",

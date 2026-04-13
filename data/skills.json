@@ -1,0 +1,48 @@
+{
+  "categories": [
+    {
+      "name": "Cybersecurity",
+      "icon": "shield",
+      "skills": [
+        { "name": "Network Security", "percentage": 85 },
+        { "name": "Vulnerability Assessment", "percentage": 50 },
+        { "name": "SOC Operations", "percentage": 55 },
+        { "name": "Web Security (OWASP)", "percentage": 45 },
+        { "name": "Cryptography", "percentage": 70 }
+      ]
+    },
+    {
+      "name": "Networking",
+      "icon": "activity",
+      "skills": [
+        { "name": "TCP/IP & OSI Model", "percentage": 85 },
+        { "name": "IP Addressing & DNS", "percentage": 80 },
+        { "name": "LAN/WAN", "percentage": 75 },
+        { "name": "Firewall & Monitoring", "percentage": 80 },
+        { "name": "Incident Management", "percentage": 80 }
+      ]
+    },
+    {
+      "name": "Security Tools",
+      "icon": "tool",
+      "skills": [
+        { "name": "Nmap", "percentage": 85 },
+        { "name": "Wireshark", "percentage": 80 },
+        { "name": "Burp Suite", "percentage": 55 },
+        { "name": "Metasploit", "percentage": 40 },
+        { "name": "Kali Linux", "percentage": 50 }
+      ]
+    },
+    {
+      "name": "Systems & Scripting",
+      "icon": "server",
+      "skills": [
+        { "name": "Linux", "percentage": 60 },
+        { "name": "Windows", "percentage": 85 },
+        { "name": "Python", "percentage": 70 },
+        { "name": "Bash", "percentage": 65 },
+        { "name": "Troubleshooting", "percentage": 85 }
+      ]
+    }
+  ]
+}

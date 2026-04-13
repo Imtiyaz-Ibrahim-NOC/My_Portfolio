@@ -1,0 +1,31 @@
+{
+  "certificates": [
+    {
+      "id": "CompTIA Security+",
+      "title": "CompTIA Security+",
+      "issuer": "Coursera",
+      "issueDate": "2025-12-18",
+      "credentialId": "KHGGCYC7POMG",
+      "image": "data/images/comptia security+_page-0001.jpg",
+      "link": "https://coursera.org/share/a9e2f0cacabb640ceae10b9e80f73a5f"
+    },
+    {
+      "id": "Certified Information Systems Security professional (CISSP)",
+      "title": "CCertified Information Systems Security Professional (CISSP)",
+      "issuer": "Coursera",
+      "issueDate": "2025-12-18",
+      "credentialId": "YD4T0YNCH0N6",
+      "image": "data/images/cissp_page-0001.jpg",
+      "link": "https://coursera.org/share/f25cbb9ce52d1aadcf07cafbe0618518"
+    },
+    {
+      "id": "CCNA 200-301",
+      "title": "CCNA 200-301",
+      "issuer": "Simplilearn|SkillUP",
+      "issueDate": "2026-02-19",
+      "credentialId": "",
+      "image": "data/images/ccna_page-0001.jpg",
+      "link": "https://simpli-web.app.link/e/xxopePiLi2b"
+    }
+  ]
+}

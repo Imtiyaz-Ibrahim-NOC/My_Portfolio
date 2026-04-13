@@ -94,7 +94,7 @@ const BlogDetail = {
                 <div class="no-results" style="text-align: center; padding: 4rem 2rem;">
                     <h2 style="margin-bottom: 1rem; color: var(--text-primary);">Oops!</h2>
                     <p style="color: var(--text-secondary); margin-bottom: 2rem;">${message}</p>
-                    <a href="index.html#blogs" class="btn btn-primary">Back to Blog</a>
+                    <a href="index.html?scroll=blogs" class="btn btn-primary">Back to Blog</a>
                 </div>
             `;
         }

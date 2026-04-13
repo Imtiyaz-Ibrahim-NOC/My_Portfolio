@@ -1,6 +1,6 @@
 /**
  * Navigation Module
- * Handles navbar functionality, mobile menu, and scroll behavior
+ * Handles navbar functionality, mobile menu, scroll behavior, and theme
  */
 
 const Navigation = {
@@ -13,12 +13,16 @@ const Navigation = {
         this.navMenu = document.getElementById('nav-menu');
         this.navLinks = document.querySelectorAll('.nav-link');
         this.backToTop = document.getElementById('back-to-top');
-        
+        this.themeToggle = document.getElementById('theme-toggle');
+
+        // ✅ Load saved theme FIRST
+        this.loadTheme();
+
         this.bindEvents();
         this.handleScroll();
         this.highlightActiveSection();
     },
-    
+
     /**
      * Bind event listeners
      */
@@ -27,7 +31,7 @@ const Navigation = {
         if (this.navToggle) {
             this.navToggle.addEventListener('click', () => this.toggleMobileMenu());
         }
-        
+
         // Close mobile menu on link click
         this.navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
@@ -35,20 +39,20 @@ const Navigation = {
                 this.handleNavClick(e);
             });
         });
-        
+
         // Scroll events
         window.addEventListener('scroll', Utils.throttle(() => {
             this.handleScroll();
             this.highlightActiveSection();
         }, 100));
-        
+
         // Back to top button
         if (this.backToTop) {
             this.backToTop.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
-        
+
         // Close mobile menu on outside click
         document.addEventListener('click', (e) => {
             if (this.navMenu && this.navMenu.classList.contains('active')) {
@@ -57,8 +61,13 @@ const Navigation = {
                 }
             }
         });
+
+        // ✅ Theme toggle
+        if (this.themeToggle) {
+            this.themeToggle.addEventListener('click', () => this.toggleTheme());
+        }
     },
-    
+
     /**
      * Toggle mobile menu
      */
@@ -67,7 +76,7 @@ const Navigation = {
         this.navMenu.classList.toggle('active');
         document.body.style.overflow = this.navMenu.classList.contains('active') ? 'hidden' : '';
     },
-    
+
     /**
      * Close mobile menu
      */
@@ -76,14 +85,14 @@ const Navigation = {
         this.navMenu.classList.remove('active');
         document.body.style.overflow = '';
     },
-    
+
     /**
      * Handle scroll effects
      */
     handleScroll() {
         const scrollY = window.scrollY;
-        
-        // Add scrolled class to navbar
+
+        // Navbar shadow
         if (this.navbar) {
             if (scrollY > 50) {
                 this.navbar.classList.add('scrolled');
@@ -91,8 +100,8 @@ const Navigation = {
                 this.navbar.classList.remove('scrolled');
             }
         }
-        
-        // Show/hide back to top button
+
+        // Back to top button
         if (this.backToTop) {
             if (scrollY > 500) {
                 this.backToTop.classList.add('visible');
@@ -101,20 +110,20 @@ const Navigation = {
             }
         }
     },
-    
+
     /**
-     * Highlight active section in navbar
+     * Highlight active section
      */
     highlightActiveSection() {
         const sections = document.querySelectorAll('section[id]');
         const scrollY = window.scrollY;
         const offset = 100;
-        
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop - offset;
             const sectionHeight = section.offsetHeight;
             const sectionId = section.getAttribute('id');
-            
+
             if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
                 this.navLinks.forEach(link => {
                     link.classList.remove('active');
@@ -125,15 +134,13 @@ const Navigation = {
             }
         });
     },
-    
+
     /**
-     * Handle navigation link click
-     * @param {Event} e - Click event
+     * Handle nav click
      */
     handleNavClick(e) {
         const href = e.target.getAttribute('href');
-        
-        // Only handle internal links
+
         if (href && href.startsWith('#')) {
             e.preventDefault();
             const target = document.querySelector(href);
@@ -142,10 +149,9 @@ const Navigation = {
             }
         }
     },
-    
+
     /**
-     * Set active link by href
-     * @param {string} href - Link href to activate
+     * Set active link manually
      */
     setActiveLink(href) {
         this.navLinks.forEach(link => {
@@ -154,15 +160,40 @@ const Navigation = {
                 link.classList.add('active');
             }
         });
+    },
+
+    /**
+     * ✅ Toggle theme
+     */
+    toggleTheme() {
+        document.body.classList.toggle('dark');
+
+        const isDark = document.body.classList.contains('dark');
+
+        // Save to localStorage
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    },
+
+    /**
+     * ✅ Load theme on page load
+     */
+    loadTheme() {
+        const savedTheme = localStorage.getItem('theme');
+
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark');
+        } else {
+            document.body.classList.remove('dark');
+        }
     }
 };
 
-// Initialize on DOM ready
+// Initialize
 document.addEventListener('DOMContentLoaded', () => {
     Navigation.init();
 });
 
-// Export for use in other modules
+// Export
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = Navigation;
 }

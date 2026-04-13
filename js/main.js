@@ -7,13 +7,26 @@ const App = {
     /**
      * Initialize the application
      */
-    init() {
-        this.initTheme();
-        this.initFooter();
-        this.initSmoothScroll();
-        this.initRevealAnimations();
-    },
-    
+  init() {
+    this.initTheme();
+    this.initFooter();
+    this.initSmoothScroll();
+    this.initRevealAnimations();
+    this.handleInitialScroll(); // ✅ ADD THIS
+},
+    handleInitialScroll() {
+    const params = new URLSearchParams(window.location.search);
+    const sectionId = params.get('scroll');
+
+    if (sectionId) {
+        setTimeout(() => {
+            const target = document.getElementById(sectionId);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 300);
+    }
+},
     /**
      * Initialize theme (dark/light mode)
      */

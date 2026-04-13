@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+    if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+    }
+</script>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
@@ -133,6 +140,7 @@
                 <h2 class="section-title">Blog</h2>
                 <p class="section-subtitle">Thoughts and insights</p>
             </div>
+
             <div class="blogs-filter">
                 <div class="search-box">
                     <input type="text" id="blog-search" placeholder="Search articles..." class="search-input">
@@ -141,15 +149,24 @@
                         <path d="m21 21-4.35-4.35"></path>
                     </svg>
                 </div>
+
                 <div class="filter-categories" id="blog-categories">
-                    <!-- Category filters loaded dynamically -->
+                    <!-- Category filters -->
                 </div>
             </div>
+
             <div class="blogs-grid" id="blogs-grid">
-                <!-- Blog cards loaded dynamically -->
+                <!-- Blog cards -->
             </div>
+
+            <!-- ✅ ADD THIS -->
+            <div class="load-more-container">
+                <button id="load-more" class="btn btn-primary">Load More</button>
+            </div>
+
         </div>
     </section>
+
 
     <!-- Certificates Section -->
     <section id="certificates" class="certificates">
@@ -200,7 +217,8 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p class="footer-text">© <span id="footer-year"></span> <span id="footer-name">Portfolio</span>. All rights reserved.</p>
+                <p class="footer-text">© <span id="footer-year"></span> <span id="footer-name">Portfolio</span>. All
+                    rights reserved.</p>
                 <div class="footer-links" id="footer-links">
                     <!-- Footer links loaded dynamically -->
                 </div>
@@ -229,4 +247,5 @@
     <script src="js/contact.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

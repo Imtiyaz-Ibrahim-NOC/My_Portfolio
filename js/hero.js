@@ -116,6 +116,7 @@ const Hero = {
                 ">${initials}</div>
             `;
         }
+        
     },
     
     /**

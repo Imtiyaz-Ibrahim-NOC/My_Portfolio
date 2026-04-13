@@ -1,53 +1,54 @@
 /**
  * Blogs Module
- * Handles blogs section with search and category filtering
+ * Handles blogs section with search, category filtering,
+ * and optimized chunk loading (pagination)
  */
 
 const Blogs = {
-    /**
-     * Initialize blogs section
-     */
     async init() {
         this.container = document.getElementById('blogs-grid');
         this.searchInput = document.getElementById('blog-search');
         this.categoriesContainer = document.getElementById('blog-categories');
-        
+        this.loadMoreBtn = document.getElementById('load-more');
+
         if (!this.container) return;
-        
+
+        // State
         this.allBlogs = [];
         this.filteredBlogs = [];
         this.allCategories = [];
         this.activeCategory = 'All';
         this.searchQuery = '';
-        
+
+        // Pagination
+        this.itemsPerLoad = 10;
+        this.currentIndex = 0;
+
         try {
             const data = await DataLoader.loadBlogs();
             this.allBlogs = data.blogs || [];
             this.filteredBlogs = [...this.allBlogs];
             this.allCategories = await DataLoader.getBlogCategories();
-            
+
             this.renderCategories();
-            this.renderBlogs();
+            this.renderBlogs(); // initial chunk
             this.bindEvents();
         } catch (error) {
             console.error('Error loading blogs:', error);
             this.renderError();
         }
     },
-    
-    /**
-     * Bind event listeners
-     */
+
     bindEvents() {
-        // Search input
+        // 🔍 Search
         if (this.searchInput) {
             this.searchInput.addEventListener('input', Utils.debounce((e) => {
                 this.searchQuery = e.target.value.toLowerCase().trim();
                 this.filterBlogs();
             }, 300));
         }
-        
-        // Category filters (event delegation)
+
+        // 🏷️ Category filter
         if (this.categoriesContainer) {
             this.categoriesContainer.addEventListener('click', (e) => {
                 if (e.target.classList.contains('filter-category')) {
@@ -57,89 +58,108 @@ const Blogs = {
                 }
             });
         }
+
+        // ➕ Load More button
+        if (this.loadMoreBtn) {
+            this.loadMoreBtn.addEventListener('click', () => {
+                this.loadMoreBlogs();
+            });
+        }
     },
-    
-    /**
-     * Render category filters
-     */
+
     renderCategories() {
         if (!this.categoriesContainer) return;
-        this.categoriesContainer.innerHTML = Renderer.renderFilters(this.allCategories, 'All', 'category');
+        this.categoriesContainer.innerHTML =
+            Renderer.renderFilters(this.allCategories, 'All', 'category');
     },
-    
-    /**
-     * Update active category styling
-     */
+
     updateActiveCategory() {
         const categories = this.categoriesContainer.querySelectorAll('.filter-category');
         categories.forEach(cat => {
-            if (cat.dataset.value === this.activeCategory) {
-                cat.classList.add('active');
-            } else {
-                cat.classList.remove('active');
-            }
+            cat.classList.toggle('active', cat.dataset.value === this.activeCategory);
         });
     },
-    
-    /**
-     * Filter blogs based on search query and active category
-     */
+
     filterBlogs() {
         this.filteredBlogs = this.allBlogs.filter(blog => {
-            // Category filter
-            const matchesCategory = this.activeCategory === 'All' || blog.category === this.activeCategory;
-            
-            // Search filter
-            const matchesSearch = !this.searchQuery || 
+            const matchesCategory =
+                this.activeCategory === 'All' || blog.category === this.activeCategory;
+
+            const matchesSearch =
+                !this.searchQuery ||
                 blog.title.toLowerCase().includes(this.searchQuery) ||
                 blog.description.toLowerCase().includes(this.searchQuery) ||
                 blog.category.toLowerCase().includes(this.searchQuery);
-            
+
             return matchesCategory && matchesSearch;
         });
-        
-        this.renderBlogs();
+
+        // 🔥 Reset & re-render
+        this.currentIndex = 0;
+        this.container.innerHTML = '';
+        this.loadMoreBlogs();
     },
-    
-    /**
-     * Render blogs grid
-     */
+
     renderBlogs() {
         if (this.filteredBlogs.length === 0) {
-            this.container.innerHTML = Renderer.noResults('No articles found matching your criteria');
+            this.container.innerHTML =
+                Renderer.noResults('No articles found matching your criteria');
+            if (this.loadMoreBtn) this.loadMoreBtn.style.display = 'none';
             return;
         }
-        
-        const html = this.filteredBlogs
+
+        // Reset
+        this.container.innerHTML = '';
+        this.currentIndex = 0;
+
+        this.loadMoreBlogs();
+    },
+
+    loadMoreBlogs() {
+        const nextItems = this.filteredBlogs.slice(
+            this.currentIndex,
+            this.currentIndex + this.itemsPerLoad
+        );
+
+        const html = nextItems
             .map(blog => Renderer.blogCard(blog))
             .join('');
-        
-        this.container.innerHTML = html;
-        
-        // Setup lazy loading for images
+
+        this.container.insertAdjacentHTML('beforeend', html);
+
+        this.currentIndex += this.itemsPerLoad;
+
+        // Hide button if no more items
+        if (this.loadMoreBtn) {
+            if (this.currentIndex >= this.filteredBlogs.length) {
+                this.loadMoreBtn.style.display = 'none';
+            } else {
+                this.loadMoreBtn.style.display = 'block';
+            }
+        }
+
+        // Lazy load images
         Utils.lazyLoadImages('.blog-image[data-src]');
-        
-        // Add reveal animation
+
+        // Reveal animation
         Utils.observeElements('.blog-card', 'active', {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         });
     },
-    
-    /**
-     * Render error state
-     */
+
     renderError() {
-        this.container.innerHTML = Renderer.errorMessage('Failed to load blog posts');
+        this.container.innerHTML =
+            Renderer.errorMessage('Failed to load blog posts');
     }
 };
 
-// Initialize on DOM ready
+// Init
 document.addEventListener('DOMContentLoaded', () => {
     Blogs.init();
 });
 
-// Export for use in other modules
+// Export
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = Blogs;
 }

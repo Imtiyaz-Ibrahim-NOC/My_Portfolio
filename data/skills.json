@@ -1,107 +1,47 @@
 {
   "categories": [
     {
-      "name": "Frontend Development",
-      "icon": "layout",
+      "name": "Cybersecurity",
+      "icon": "shield",
       "skills": [
-        {
-          "name": "HTML/CSS",
-          "percentage": 95
-        },
-        {
-          "name": "JavaScript",
-          "percentage": 90
-        },
-        {
-          "name": "React",
-          "percentage": 85
-        },
-        {
-          "name": "TypeScript",
-          "percentage": 80
-        },
-        {
-          "name": "Vue.js",
-          "percentage": 75
-        }
+        { "name": "Network Security", "percentage": 85 },
+        { "name": "Vulnerability Assessment", "percentage": 50 },
+        { "name": "SOC Operations", "percentage": 55 },
+        { "name": "Web Security (OWASP)", "percentage": 45 },
+        { "name": "Cryptography", "percentage": 70 }
       ]
     },
     {
-      "name": "Backend Development",
+      "name": "Networking",
+      "icon": "activity",
+      "skills": [
+        { "name": "TCP/IP & OSI Model", "percentage": 85 },
+        { "name": "IP Addressing & DNS", "percentage": 80 },
+        { "name": "LAN/WAN", "percentage": 75 },
+        { "name": "Firewall & Monitoring", "percentage": 80 },
+        { "name": "Incident Management", "percentage": 80 }
+      ]
+    },
+    {
+      "name": "Security Tools",
+      "icon": "tool",
+      "skills": [
+        { "name": "Nmap", "percentage": 85 },
+        { "name": "Wireshark", "percentage": 80 },
+        { "name": "Burp Suite", "percentage": 55 },
+        { "name": "Metasploit", "percentage": 40 },
+        { "name": "Kali Linux", "percentage": 50 }
+      ]
+    },
+    {
+      "name": "Systems & Scripting",
       "icon": "server",
       "skills": [
-        {
-          "name": "Python",
-          "percentage": 90
-        },
-        {
-          "name": "Node.js",
-          "percentage": 85
-        },
-        {
-          "name": "PostgreSQL",
-          "percentage": 80
-        },
-        {
-          "name": "MongoDB",
-          "percentage": 75
-        },
-        {
-          "name": "GraphQL",
-          "percentage": 70
-        }
-      ]
-    },
-    {
-      "name": "Data Engineering",
-      "icon": "database",
-      "skills": [
-        {
-          "name": "Apache Airflow",
-          "percentage": 85
-        },
-        {
-          "name": "Apache Spark",
-          "percentage": 80
-        },
-        {
-          "name": "dbt",
-          "percentage": 75
-        },
-        {
-          "name": "Snowflake",
-          "percentage": 70
-        },
-        {
-          "name": "Kafka",
-          "percentage": 65
-        }
-      ]
-    },
-    {
-      "name": "Cloud & DevOps",
-      "icon": "cloud",
-      "skills": [
-        {
-          "name": "AWS",
-          "percentage": 85
-        },
-        {
-          "name": "Docker",
-          "percentage": 80
-        },
-        {
-          "name": "Kubernetes",
-          "percentage": 70
-        },
-        {
-          "name": "Terraform",
-          "percentage": 75
-        },
-        {
-          "name": "CI/CD",
-          "percentage": 70
-        }
+        { "name": "Linux", "percentage": 60 },
+        { "name": "Windows", "percentage": 85 },
+        { "name": "Python", "percentage": 70 },
+        { "name": "Bash", "percentage": 65 },
+        { "name": "Troubleshooting", "percentage": 85 }
       ]
     }
   ]

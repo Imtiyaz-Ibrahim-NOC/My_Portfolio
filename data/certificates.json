@@ -26,6 +26,24 @@
       "credentialId": "",
       "image": "data/images/ccna_page-0001.jpg",
       "link": "https://simpli-web.app.link/e/xxopePiLi2b"
+    },
+    {
+      "id": "CompTIA Security+ SY0-701",
+      "title": "CompTIA Security+ SY0-701",
+      "issuer": "ITU",
+      "issueDate": "14/12/2025",
+      "credentialId": "",
+      "image": "data/images/CompTIA Security+ SY0-701 (ITU).jpeg",
+      "link": "https://drive.google.com/file/d/1rtwdIrjnXkytdkk7mPaDXa89unefOzFR/view?usp=drivesdk"
+    },
+    {
+      "id": "Introduction to Cybersecurity",
+      "title": "Introduction to Cybersecurity",
+      "issuer": "CISCO",
+      "issueDate": "15/12/2025",
+      "credentialId": "",
+      "image": "data/images/Introduction to Cybersecurity (CISCO).jpeg",
+      "link": "https://drive.google.com/file/d/1w7Ltn7Rtr2L3ByJDAwr8ejM4QBl74zHG/view?usp=drivesdk"
     }
   ]
 }

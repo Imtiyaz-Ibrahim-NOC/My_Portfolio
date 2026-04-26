@@ -44,6 +44,15 @@
       "credentialId": "",
       "image": "data/images/Introduction to Cybersecurity (CISCO).jpeg",
       "link": "https://drive.google.com/file/d/1w7Ltn7Rtr2L3ByJDAwr8ejM4QBl74zHG/view?usp=drivesdk"
+    },
+    {
+      "id": "Introduction to Cybersecurity",
+      "title": "Introduction to Cybersecurity",
+      "issuer": "CISCO",
+      "issueDate": "15/12/2025",
+      "credentialId": "",
+      "image": "data/images/Introduction to Cybersecurity (CISCO).jpeg",
+      "link": "https://drive.google.com/file/d/1w7Ltn7Rtr2L3ByJDAwr8ejM4QBl74zHG/view?usp=drivesdk"
     }
   ]
 }
